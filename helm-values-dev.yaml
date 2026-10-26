@@ -1,0 +1,24 @@
+projectName: sparrowx
+environment: dev
+
+serviceName: web-portal
+
+replicaCount: 1
+
+appPort: 8080
+# extraAnnotations:
+# extraLabels:
+
+resources:
+  size: medium
+
+servicemonitor:
+  enabled: true
+
+probePath: /
+livenessProbe:
+  enabled: true
+readinessProbe:
+  enabled: true
+startupProbe:
+  enabled: true
