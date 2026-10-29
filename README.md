@@ -27,9 +27,9 @@ The frontend API origin is embedded at build time rather than read from the brow
 
 | Variable | Required | Description |
 | --- | --- | --- |
-| `VITE_API_BASE_URL` | Yes for deployment | Public base URL used by the browser to call the selected environment’s backend APIs. |
+| `VITE_API_BASE_URL` | No | Optional API origin. Leave empty for same-origin `/api/...` calls through the Gateway. |
 
-The value is supplied from `frontend.apiBaseUrl` in the selected ECS parameters file: the development URL for `dev` and the production URL for `prod`.
+When set, the value overrides the same-origin API paths. For the Gateway deployment it should normally remain empty so the same image works in both `dev` and `prod`.
 
 ## Local development
 

@@ -1,6 +1,11 @@
-// The browser can only reach the public ALB, CloudFront, or custom domain.
-// ECS Service Connect names are for backend-to-backend traffic only.
-const baseUrl = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080').replace(/\/+$/, '');
+// Keep API calls same-origin by default. This is required for the Gateway API
+// deployment, where dev and prod use different public hostnames but the same
+// image is promoted between environments.
+const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
+const baseUrl =
+  configuredBaseUrl && configuredBaseUrl !== 'null' && configuredBaseUrl !== 'undefined'
+    ? configuredBaseUrl.replace(/\/+$/, '')
+    : '';
 
 export const API_CONFIG = {
   customer: `${baseUrl}/api/customers`,
