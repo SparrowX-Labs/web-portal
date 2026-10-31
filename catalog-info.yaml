@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: web-portal
+  description: web-portal frontend service
+  annotations:
+    backstage.io/kubernetes-id: web-portal
+    github.com/project-slug: SparrowX-Labs/web-portal
+  tags:
+    - backstage-pyactions
+    - application
+    - frontend
+spec:
+  type: service
+  lifecycle: experimental
+  owner: mohamed-awad
+  
